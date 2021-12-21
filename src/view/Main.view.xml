@@ -1,0 +1,36 @@
+<mvc:View 
+	controllerName="xmas.hacking.sample.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+
+	<Page id="todoPage">
+
+		<layout:VerticalLayout>
+			<layout:HorizontalLayout>
+				<Input value="{ui>/new/title}"></Input>
+				<Button text="Add Todo"></Button>
+			</layout:HorizontalLayout>
+
+			<Table id="todosTable"
+				inset="false"
+				items="{/}">
+				<columns>
+					<Column width="12em">
+						<Text text="Title" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{title}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</layout:VerticalLayout>
+
+	</Page>
+
+</mvc:View>

@@ -9,6 +9,12 @@
 		"description": "{{app_description}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"todos": {
+				"type": "JSON",
+				"uri": "./json-server/todos"
+			}
 		}
 	},
 
@@ -55,11 +61,38 @@
 				"settings": {
 					"bundleName": "xmas.hacking.sample.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "todos",
+				"settings": {
+					"beerObserve": true
+				}
 			}
 		},
 
 		"routing": {
-			
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "xmas.hacking.sample.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "main",
+					"target": "main"
+				}
+			],
+			"targets": {
+				"main": {
+					"viewId": "main",
+					"viewName": "Main"
+				}
+			}
 		}
 	}
 }

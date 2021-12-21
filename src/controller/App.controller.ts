@@ -1,13 +1,11 @@
 import MessageBox from "sap/m/MessageBox";
-import Controller from "sap/ui/core/mvc/Controller";
+import BaseController from "./Base.controller";
 import AppComponent from "../Component";
 
-/**
- * @namespace xmas.hacking.sample.controller
- */
-export default class AppController extends Controller {
+export default class AppController extends BaseController {
 
 	public onInit() : void {
+		super.onInit();
 		// apply content density mode to root view
 		this.getView().addStyleClass((this.getOwnerComponent() as AppComponent).getContentDensityClass());
 	}

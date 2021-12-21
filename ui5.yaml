@@ -10,8 +10,19 @@ framework:
     - name: sap.ui.core
     - name: sap.ui.unified
     - name: themelib_sap_fiori_3
+builder:
+  customTasks:
+  - name: ui5-tooling-modules-task
+    afterTask: replaceVersion
 server:
   customMiddleware:
+  - name: ui5-tooling-modules-middleware
+    afterMiddleware: compression
+  - name: ui5-middleware-simpleproxy
+    afterMiddleware: compression
+    mountPath: /json-server
+    configuration:
+      baseUri: "http://localhost:3000"
   - name: ui5-middleware-livereload
     afterMiddleware: compression
     configuration:
