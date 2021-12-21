@@ -13,7 +13,11 @@
 		"dataSources": {
 			"todos": {
 				"type": "JSON",
-				"uri": "./json-server/todos"
+				"uri": "/json-server/todos"
+			},
+			"ui": {
+				"type": "JSON",
+				"uri": "./models/ui.json"
 			}
 		}
 	},
@@ -36,6 +40,12 @@
 			"type": "XML",
 			"async": true,
 			"id": "app"
+		},
+
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 
 		"dependencies": {
@@ -63,9 +73,13 @@
 				}
 			},
 			"": {
-				"dataSource": "todos",
+				"dataSource": "todos"
+			},
+			"ui": {
+				"dataSource": "ui",
 				"settings": {
-					"beerObserve": true
+					"beerObserve": true,
+					"cokeOberserve": "also true"
 				}
 			}
 		},

@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "^5.6.0",
     "@ui5/cli": "^2.14.2",
     "@ui5/fs": "^2.0.6",
+    "axios": "^0.24.0",
     "babel-preset-transform-ui5": "^7.0.5",
     "eslint": "^8.4.1",
     "json-server": "^0.17.0",

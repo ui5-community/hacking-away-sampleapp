@@ -1,36 +1,39 @@
 <mvc:View 
 	controllerName="xmas.hacking.sample.controller.Main"
 	displayBlock="true"
-	xmlns="sap.m"
+	xmlns:m="sap.m"
 	xmlns:layout="sap.ui.layout"
+    xmlns="sap.ui.webc.main"
 	xmlns:mvc="sap.ui.core.mvc">
 
-	<Page id="todoPage">
+	<m:Page id="todoPage">
 
-		<layout:VerticalLayout>
+		<layout:VerticalLayout width="100%">
 			<layout:HorizontalLayout>
-				<Input value="{ui>/new/title}"></Input>
-				<Button text="Add Todo"></Button>
+				<Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{ui>/new/title}"/>
+				<Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo" icon="add"/>
 			</layout:HorizontalLayout>
 
-			<Table id="todosTable"
-				inset="false"
-				items="{/}">
-				<columns>
-					<Column width="12em">
-						<Text text="Title" />
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem vAlign="Middle">
-						<cells>
-							<Text text="{title}"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
+			<List items="{/}">
+				<CustomListItem class="todoItems">
+					<CheckBox checked="{completed}" change=".completeTodo"/>
+					<Label text="{title}"/>
+					<Button icon="edit" click=".editTodo"/>
+					<Button icon="delete" design="Negative" click=".deleteTodo"/>
+				</CustomListItem>
+			</List>
+
 		</layout:VerticalLayout>
 
-	</Page>
+		<Dialog id="editDialog" headerText="{i18n>todo_dialog_edit_header}">
+			<content>
+				<Input id="editTodo" class="dialogTodoInput" change=".closeEdit" value="{ui>/edit/title}"/>
+			</content>
+			<footer>
+				<Button class="dialogCloseButton" design="Emphasized" text="{i18n>todo_dialog_close_button}" click=".closeEdit"/>
+			</footer>
+		</Dialog>
+
+	</m:Page>
 
 </mvc:View>
