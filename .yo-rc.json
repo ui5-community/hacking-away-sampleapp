@@ -1,0 +1,14 @@
+{
+  "generator-ui5-ts-app": {
+    "application": "sample",
+    "namespace": "xmas.hacking",
+    "framework": "OpenUI5",
+    "frameworkVersion": "1.97.0",
+    "author": "Peter Muessig",
+    "tstypes": "@openui5/ts-types-esm",
+    "tstypesVersion": "1.97.0",
+    "appId": "xmas.hacking.sample",
+    "appURI": "xmas/hacking/sample",
+    "setupCompleted": true
+  }
+}
