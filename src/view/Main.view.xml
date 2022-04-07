@@ -23,7 +23,7 @@
 				<Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${ui>/new/title})" icon="add"/>
 			</layout:HorizontalLayout>
 
-			<List items="{/}">
+			<List id="todoList" items="{/}">
 				<CustomListItem class="todoItems">
 					<CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed})"/>
 					<Label text="{title}"/>
