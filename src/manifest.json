@@ -12,7 +12,8 @@
 		},
 		"dataSources": {
 			"todos": {
-				"type": "JSON",
+				"type": "http",
+				"customType": true,
 				"uri": "/json-server/todos"
 			},
 			"ui": {
@@ -73,7 +74,8 @@
 				}
 			},
 			"": {
-				"dataSource": "todos"
+				"dataSource": "todos",
+				"type": "xmas.hacking.sample.models.TodoModel"
 			},
 			"ui": {
 				"dataSource": "ui",

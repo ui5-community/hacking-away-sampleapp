@@ -2,6 +2,9 @@ import MessageBox from "sap/m/MessageBox";
 import BaseController from "./Base.controller";
 import AppComponent from "../Component";
 
+/**
+ * @namespace xmas.hacking.sample.controller
+ */
 export default class AppController extends BaseController {
 
 	public onInit() : void {
