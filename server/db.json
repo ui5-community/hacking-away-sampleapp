@@ -1,23 +1,14 @@
 {
   "todos": [
     {
-      "id": 68072,
-      "title": "It works!",
-      "completed": false
-    },
-    {
-      "id": 43331,
-      "title": "Hello World",
-      "completed": false
-    },
-    {
-      "id": 40910,
-      "title": "Test",
+      "id": 1,
+      "title": "Learn TypeScript",
       "completed": true
     },
     {
-      "id": 21084,
-      "title": "Test123"
+      "id": 2,
+      "title": "Learn ViewModel",
+      "completed": false
     }
   ]
 }
