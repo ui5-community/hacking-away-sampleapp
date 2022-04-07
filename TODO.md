@@ -2,7 +2,11 @@
 
 Possible todos for the sample:
 
-* Move Axios into a Custom JSONModel => TodoModel
+* WDI5 TS usage
+
+# FixMe
+
+* Axios doesn't bundle dependencies with new ui5-tooling-modules!
 
 ## Unidirectional Flow
 
