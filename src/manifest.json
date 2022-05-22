@@ -1,114 +1,105 @@
 {
-	"_version": "1.12.0",
+  "_version": "1.12.0",
 
-	"sap.app": {
-		"id": "xmas.hacking.sample",
-		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"title": "{{app_title}}",
-		"description": "{{app_description}}",
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"dataSources": {
-			"todos": {
-				"type": "http",
-				"customType": true,
-				"uri": "/json-server/todos"
-			},
-			"ui": {
-				"type": "JSON",
-				"uri": "./models/ui.json"
-			}
-		}
-	},
+  "sap.app": {
+    "id": "hacking.away.sampleapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{app_title}}",
+    "description": "{{app_description}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "todos": {
+        "type": "http",
+        "uri": "/json-server/todos"
+      }
+    }
+  },
 
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {},
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
 
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		}
-	},
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "hacking.away.sampleapp.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
 
-	"sap.ui5": {
-		"rootView": {
-			"viewName": "xmas.hacking.sample.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
-		},
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
 
-		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
-		},
+    "dependencies": {
+      "minUI5Version": "1.97.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.unified": {},
+        "sap.m": {}
+      }
+    },
 
-		"dependencies": {
-			"minUI5Version": "1.97.0",
-			"libs": {
-				"sap.ui.core": {},
-				"sap.ui.layout": {},
-				"sap.ui.unified": {},
-				"sap.m": {}
-			}
-		},
+    "handleValidation": true,
 
-		"handleValidation": true,
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
 
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
-		},
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "hacking.away.sampleapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "todos",
+        "type": "hacking.away.sampleapp.models.TodoModel"
+      },
+      "ui": {
+        "type": "hacking.away.sampleapp.models.UIModel"
+      }
+    },
 
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "xmas.hacking.sample.i18n.i18n"
-				}
-			},
-			"": {
-				"dataSource": "todos",
-				"type": "xmas.hacking.sample.models.TodoModel"
-			},
-			"ui": {
-				"dataSource": "ui",
-				"settings": {
-					"beerObserve": true,
-					"cokeOberserve": "also true"
-				}
-			}
-		},
-
-		"routing": {
-			"config": {
-				"routerClass": "sap.m.routing.Router",
-				"viewType": "XML",
-				"viewPath": "xmas.hacking.sample.view",
-				"controlId": "app",
-				"controlAggregation": "pages",
-				"transition": "slide",
-				"async": true
-			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "main",
-					"target": "main"
-				}
-			],
-			"targets": {
-				"main": {
-					"viewId": "main",
-					"viewName": "Main"
-				}
-			}
-		}
-	}
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "hacking.away.sampleapp.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "main",
+          "target": "main"
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewId": "main",
+          "viewName": "Main"
+        }
+      }
+    }
+  }
 }

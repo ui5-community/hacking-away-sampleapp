@@ -9,16 +9,21 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import axios from "axios";
 
 /**
- * @namespace xmas.hacking.sample.models
+ * @namespace hacking.away.sampleapp.models
  */
 export default class TodoModel extends JSONModel {
-
-	private url : string;
+	private url: string;
 
 	constructor(url: string) {
 		super();
 		this.url = url;
-		this.read().then(() => { console.log("ok"); }).catch(() => { console.log("nOk"); });
+		this.read()
+			.then(() => {
+				console.log("ok");
+			})
+			.catch(() => {
+				console.log("nOk");
+			});
 	}
 
 	async read(): Promise<void> {
@@ -29,7 +34,7 @@ export default class TodoModel extends JSONModel {
 	async create(title: string): Promise<void> {
 		await axios.post(this.url, {
 			id: Math.round(Math.random() * 100000),
-			title: title
+			title: title,
 		});
 		await this.read();
 	}
@@ -42,9 +47,8 @@ export default class TodoModel extends JSONModel {
 	async update(id: number, title: string, completed: boolean): Promise<void> {
 		await axios.patch(`${this.url}/${id}`, {
 			title,
-			completed
+			completed,
 		});
 		await this.read();
 	}
-
 }

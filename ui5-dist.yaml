@@ -1,6 +1,6 @@
 specVersion: "2.0"
 metadata:
-  name: xmas.hacking.sample
+  name: hacking.away.sampleapp
 type: application
 resources:
   configuration:
@@ -8,7 +8,7 @@ resources:
       webapp: dist
 framework:
   name: OpenUI5
-  version: "1.100.0"
+  version: "1.102.0"
   libraries:
     - name: sap.m
     - name: sap.ui.core

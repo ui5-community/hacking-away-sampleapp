@@ -1,4 +1,3 @@
-
 import BaseController from "./Base.controller";
 
 import UI5Element from "sap/ui/core/Element";
@@ -6,12 +5,11 @@ import Dialog from "sap/ui/webc/main/Dialog";
 import TodoModel from "../models/TodoModel";
 
 /**
- * @namespace xmas.hacking.sample.controller
+ * @namespace hacking.away.sampleapp.controller
  */
- export default class MainController extends BaseController {
-
-	onInit() : void {
-		super.onInit()
+export default class MainController extends BaseController {
+	onInit(): void {
+		super.onInit();
 	}
 
 	getTodoModel(): TodoModel {
@@ -35,19 +33,17 @@ import TodoModel from "../models/TodoModel";
 	openEditDialog(id: number, title: string): void {
 		this.uiModelData.edit = {
 			id,
-			title
+			title,
 		};
-		// @ts-ignore - TODO: Dialog#show not available in @openui5/ts-types-esm
 		(this.byId("editDialog") as Dialog).show(false);
 	}
-	
+
 	async closeEditDialog(id: number, title: string): Promise<void> {
 		await this.getTodoModel().update(id, title, undefined);
 		(this.byId("editDialog") as Dialog).close();
 	}
-	
+
 	async completeTodo(id: number, checked: boolean): Promise<void> {
 		await this.getTodoModel().update(id, undefined, checked);
 	}
-
 }

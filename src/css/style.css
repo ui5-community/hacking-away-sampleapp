@@ -1,30 +1,29 @@
 .todoItems {
-    display: flex;
-    height: 2.5em;
+	display: flex;
+	height: 2.5em;
 }
 
 .todoItems > :not(:first-child) {
-    vertical-align: bottom;
-    margin-left: 1em;
+	vertical-align: bottom;
+	margin-left: 1em;
 }
 
 .todoItems > :nth-child(2) {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .todoItems > :last-child {
-    margin-right: 1em;
+	margin-right: 1em;
 }
 
 .dialogTodo {
-    position:absolute;
+	position: absolute;
 }
 
-
 .dialogTodoInput {
-    width: 100%;
+	width: 100%;
 }
 
 .dialogCloseButton {
-    margin: 0.5em;
+	margin: 0.5em;
 }

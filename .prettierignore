@@ -1,0 +1,13 @@
+# Ignore files
+package-lock.json
+.yo-rc.json
+
+# Ignore build output folders
+/dist/**
+/webapp/**
+/server/**
+
+# Ignore files by extension
+/**/*.svg
+/**/*.png
+/**/*.md

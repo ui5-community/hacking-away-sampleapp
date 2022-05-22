@@ -1,32 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "es2015",
-        "module": "es2015",
-        "skipLibCheck": true,
-        "preserveConstEnums": true,
-        "moduleResolution": "Node",
-        "sourceMap": false,
-        "allowJs": true,
-        "strict": true,
-        "strictNullChecks": false,
-        "strictPropertyInitialization": false,
-        "rootDir": "./src",
-        "outDir": "./dist",
-        "baseUrl": "./",
-        "typeRoots": [
-            "./node_modules/@types",
-            "./node_modules/@openui5/ts-types-esm"
-        ],
-        "paths": {
-            "xmas/hacking/sample/*": [
-                "./src/*"
-            ]
-        }
-    },
-    "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-        "./test"
-    ]
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@openui5/ts-types-esm"],
+    "paths": {
+      "hacking/away/sampleapp/*": ["./src/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["./test"]
 }

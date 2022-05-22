@@ -1,0 +1,4 @@
+{
+  "src/**/*.{js,ts}": "eslint",
+  "test/**/*.{js,ts}": "eslint"
+}

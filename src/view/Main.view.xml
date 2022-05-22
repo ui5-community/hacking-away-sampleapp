@@ -1,41 +1,28 @@
-<mvc:View 
-	controllerName="xmas.hacking.sample.controller.Main"
-	displayBlock="true"
-	xmlns:m="sap.m"
-	xmlns:layout="sap.ui.layout"
-	xmlns="sap.ui.webc.main"
-	xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="hacking.away.sampleapp.controller.Main" displayBlock="true" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns="sap.ui.webc.main" xmlns:mvc="sap.ui.core.mvc">
+  <Dialog id="editDialog" headerText="{i18n>todo_dialog_edit_header}">
+    <content>
+      <Input id="editTodo" class="dialogTodoInput" value="{ui>/edit/title}" change=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
+    </content>
+    <footer>
+      <Button class="dialogCloseButton" design="Emphasized" text="{i18n>todo_dialog_close_button}" click=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
+    </footer>
+  </Dialog>
 
-	<Dialog id="editDialog" headerText="{i18n>todo_dialog_edit_header}">
-		<content>
-			<Input id="editTodo" class="dialogTodoInput" value="{ui>/edit/title}" change=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
-		</content>
-		<footer>
-			<Button class="dialogCloseButton" design="Emphasized" text="{i18n>todo_dialog_close_button}" click=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})"/>
-		</footer>
-	</Dialog>
-	
-	<m:Page id="todoPage">
+  <m:Page id="todoPage">
+    <layout:VerticalLayout width="100%">
+      <layout:HorizontalLayout>
+        <Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{ui>/new/title}" />
+        <Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${ui>/new/title})" icon="add" />
+      </layout:HorizontalLayout>
 
-		<layout:VerticalLayout width="100%">
-			<layout:HorizontalLayout>
-				<Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{ui>/new/title}"/>
-				<Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${ui>/new/title})" icon="add"/>
-			</layout:HorizontalLayout>
-
-			<List id="todoList" items="{/}">
-				<CustomListItem class="todoItems">
-					<CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed})"/>
-					<Label text="{title}"/>
-					<Button icon="edit" click=".openEditDialog(${id}, ${title})"/>
-					<Button icon="delete" design="Negative" click=".deleteTodo(${id})"/>
-				</CustomListItem>
-			</List>
-
-		</layout:VerticalLayout>
-
-		
-
-	</m:Page>
-
+      <List id="todoList" items="{/}">
+        <CustomListItem class="todoItems">
+          <CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed})" />
+          <Label text="{title}" />
+          <Button icon="edit" click=".openEditDialog(${id}, ${title})" />
+          <Button icon="delete" design="Negative" click=".deleteTodo(${id})" />
+        </CustomListItem>
+      </List>
+    </layout:VerticalLayout>
+  </m:Page>
 </mvc:View>

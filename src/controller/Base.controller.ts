@@ -1,20 +1,14 @@
-import Controller from "sap/ui/core/mvc/Controller"
-import JSONModel from "sap/ui/model/json/JSONModel";
-import { UIModelData } from "../types/ui"
+import Controller from "sap/ui/core/mvc/Controller";
+import UIModel, { UIModelData } from "../models/UIModel";
 
 /**
- * @namespace xmas.hacking.sample.controller
+ * @namespace hacking.away.sampleapp.controller
  */
 export default class BaseController extends Controller {
-
 	protected uiModelData: UIModelData;
 
-	public onInit() : void {
-
-		// requires beerMode in manifest => bObserve=true!
-		// -> only properties are allowed to be changed, no object/array refs!
-		this.uiModelData = (this.getOwnerComponent().getModel("ui") as JSONModel).getData() as UIModelData;
-
+	public onInit(): void {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		this.uiModelData = (this.getOwnerComponent().getModel("ui") as UIModel).getData() as UIModelData;
 	}
-
 }
