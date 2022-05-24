@@ -13,7 +13,7 @@
     "dataSources": {
       "todos": {
         "type": "http",
-        "uri": "/json-server/todos"
+        "uri": "/"
       }
     }
   },

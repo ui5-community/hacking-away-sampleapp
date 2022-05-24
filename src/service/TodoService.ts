@@ -1,0 +1,42 @@
+import Filter from "sap/ui/model/Filter";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import Sorter from "sap/ui/model/Sorter";
+import BaseService from "./BaseService";
+
+export type TodoEntity = {
+	id: number;
+	title: string;
+	completed?: boolean;
+};
+export type TodoEntitySet = { results: Array<TodoEntity> };
+
+/**
+ * @namespace hacking.away.sampleapp.service
+ */
+export default class TodoService extends BaseService {
+	constructor(model: ODataModel) {
+		super(model);
+	}
+	public async getTodosData() {
+		const result = await this.odata("/todos").get<TodoEntitySet>();
+		return result.data.results;
+	}
+	public getTodos() {
+		return this.odata("/todos").get<TodoEntitySet>();
+	}
+	public addTodo(todo: TodoEntity) {
+		return this.odata("/todos").post<TodoEntity>(todo);
+	}
+	public deleteTodo(id: number) {
+		const todoPath = this.model.createKey("/todos", {
+			id: id,
+		});
+		return this.odata(todoPath).delete();
+	}
+	public updateTodo(todo: TodoEntity) {
+		const todoPath = this.model.createKey("/todos", {
+			id: todo.id,
+		});
+		return this.odata(todoPath).put(todo);
+	}
+}

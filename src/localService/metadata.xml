@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema
+      Namespace="UI5con.Models"
+      xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+      xmlns="http://schemas.microsoft.com/ado/2006/04/edm"
+    >
+      <EntityType Name="todo">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="title" Type="Edm.String" Nullable="true" />
+        <Property Name="completed" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityContainer Name="todos" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="todos" EntityType="UI5con.Models.todo" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
