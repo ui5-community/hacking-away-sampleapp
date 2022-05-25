@@ -18,23 +18,23 @@ export default class TodoService extends BaseService {
 		super(model);
 	}
 	public async getTodosData() {
-		const result = await this.odata("/todos").get<TodoEntitySet>();
+		const result = await this.odata("/Todos").get<TodoEntitySet>();
 		return result.data.results;
 	}
 	public getTodos() {
-		return this.odata("/todos").get<TodoEntitySet>();
+		return this.odata("/Todos").get<TodoEntitySet>();
 	}
 	public addTodo(todo: TodoEntity) {
-		return this.odata("/todos").post<TodoEntity>(todo);
+		return this.odata("/Todos").post<TodoEntity>(todo);
 	}
 	public deleteTodo(id: number) {
-		const todoPath = this.model.createKey("/todos", {
+		const todoPath = this.model.createKey("/Todos", {
 			id: id,
 		});
 		return this.odata(todoPath).delete();
 	}
 	public updateTodo(todo: TodoEntity) {
-		const todoPath = this.model.createKey("/todos", {
+		const todoPath = this.model.createKey("/Todos", {
 			id: todo.id,
 		});
 		return this.odata(todoPath).put(todo);

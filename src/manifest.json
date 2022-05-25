@@ -12,8 +12,8 @@
     },
     "dataSources": {
       "todos": {
-        "type": "http",
-        "uri": "/"
+        "type": "OData",
+        "uri": "/v2/catalog"
       }
     }
   },

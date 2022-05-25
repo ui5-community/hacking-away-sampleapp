@@ -21,9 +21,9 @@ server:
       afterMiddleware: compression
     - name: ui5-middleware-simpleproxy
       afterMiddleware: compression
-      mountPath: /json-server
+      mountPath: /v2
       configuration:
-        baseUri: "http://localhost:3000"
+        baseUri: "http://localhost:4004/v2"
     - name: ui5-middleware-livereload
       afterMiddleware: compression
       configuration:
