@@ -9,6 +9,11 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import axios from "axios";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import TodoService from "../service/TodoService";
+import TodoItem from "./TodoItem";
+
+export type todoModelData = {
+	todoItems: Array<TodoItem>;
+};
 
 /**
  * @namespace hacking.away.sampleapp.models
@@ -16,11 +21,16 @@ import TodoService from "../service/TodoService";
 export default class TodoModel extends JSONModel {
 	private url: string;
 	private todoService: TodoService;
+	private data: todoModelData;
 	constructor(url: string) {
 		super();
 		this.url = url;
 		const model = new ODataModel(url);
 		this.todoService = new TodoService(model);
+		this.data = {
+			todoItems: [],
+		};
+		this.updateData();
 		this.read()
 			.then(() => {
 				console.log("ok");
@@ -29,11 +39,17 @@ export default class TodoModel extends JSONModel {
 				console.log("nOk");
 			});
 	}
-
+	updateData() {
+		this.setData(this.data);
+	}
+	getTodoItem(id: number) {
+		return this.data.todoItems.find((item) => item.getId() === id);
+	}
 	async read(): Promise<void> {
 		// const response = await axios.get(this.url);
 		const response = await this.todoService.getTodos();
-		this.setData(response.data.results);
+		this.data.todoItems = response.data.results.map((item) => new TodoItem(item));
+		this.updateData();
 	}
 
 	async create(title: string): Promise<void> {
@@ -41,29 +57,30 @@ export default class TodoModel extends JSONModel {
 		// 	id: Math.round(Math.random() * 100000),
 		// 	title: title,
 		// });
-		await this.todoService.addTodo({
-			id: Math.round(Math.random() * 100000),
-			title: title,
-		});
+		await this.todoService.addTodo(new TodoItem({ title }).getJSON());
 		await this.read();
 	}
 
-	async delete(id: number): Promise<void> {
+	async delete(todoItem: TodoItem): Promise<void> {
+		// async delete(id: number): Promise<void> {
 		// await axios.delete(`${this.url}/${id}`);
-		await this.todoService.deleteTodo(id);
+		await this.todoService.deleteTodo(todoItem.getId());
 		await this.read();
 	}
 
-	async update(id: number, title: string, completed: boolean): Promise<void> {
+	async update(todoItem: TodoItem): Promise<void> {
+		// async update(id: number, title: string, completed: boolean): Promise<void> {
 		// await axios.patch(`${this.url}/${id}`, {
 		// 	title,
 		// 	completed,
 		// });
-		await this.todoService.updateTodo({
-			id,
-			title,
-			completed,
-		});
+		await this.todoService.updateTodo(todoItem.getJSON());
 		await this.read();
+	}
+	async updateTitle(id: number, title: string): Promise<void> {
+		const todoItem = this.getTodoItem(id);
+		todoItem.setCompleted(false);
+		todoItem.setTitle(title);
+		await this.update(todoItem);
 	}
 }

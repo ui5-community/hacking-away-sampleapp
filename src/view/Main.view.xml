@@ -15,12 +15,12 @@
         <Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${ui>/new/title})" icon="add" />
       </layout:HorizontalLayout>
 
-      <List id="todoList" items="{/}">
+      <List id="todoList" items="{/todoItems}">
         <CustomListItem class="todoItems">
-          <CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed})" />
+          <CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed},$event)" />
           <Label text="{title}" />
           <Button icon="edit" click=".openEditDialog(${id}, ${title})" />
-          <Button icon="delete" design="Negative" click=".deleteTodo(${id})" />
+          <Button icon="delete" design="Negative" click=".deleteTodo(${id},$event)" />
         </CustomListItem>
       </List>
     </layout:VerticalLayout>

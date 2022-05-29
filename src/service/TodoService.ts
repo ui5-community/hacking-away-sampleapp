@@ -4,8 +4,8 @@ import Sorter from "sap/ui/model/Sorter";
 import BaseService from "./BaseService";
 
 export type TodoEntity = {
-	id: number;
-	title: string;
+	id?: number;
+	title?: string;
 	completed?: boolean;
 };
 export type TodoEntitySet = { results: Array<TodoEntity> };
