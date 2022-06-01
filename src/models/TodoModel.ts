@@ -13,6 +13,8 @@ import TodoItem from "./TodoItem";
 
 export type todoModelData = {
 	todoItems: Array<TodoItem>;
+	completedCount: number;
+	notCompletedCount: number;
 };
 
 /**
@@ -29,6 +31,8 @@ export default class TodoModel extends JSONModel {
 		this.todoService = new TodoService(model);
 		this.data = {
 			todoItems: [],
+			completedCount: 0,
+			notCompletedCount: 0,
 		};
 		this.updateData();
 		this.read()
@@ -49,6 +53,8 @@ export default class TodoModel extends JSONModel {
 		// const response = await axios.get(this.url);
 		const response = await this.todoService.getTodos();
 		this.data.todoItems = response.data.results.map((item) => new TodoItem(item));
+		this.data.completedCount = this.data.todoItems.filter((item) => item.getCompleted()).length || 0;
+		this.data.notCompletedCount = this.data.todoItems.filter((item) => !item.getCompleted()).length || 0;
 		this.updateData();
 	}
 

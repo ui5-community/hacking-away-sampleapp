@@ -28,6 +28,9 @@ export default class TodoItem extends BaseObject<TodoEntity> {
 	public setCompleted(completed: boolean) {
 		this.completed = completed;
 	}
+	public getCompleted() {
+		return this.completed;
+	}
 	public setTitle(title: string) {
 		this.title = title;
 	}

@@ -1,4 +1,12 @@
-<mvc:View controllerName="hacking.away.sampleapp.controller.Main" displayBlock="true" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns="sap.ui.webc.main" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View
+  controllerName="hacking.away.sampleapp.controller.Main"
+  displayBlock="true"
+  xmlns:m="sap.m"
+  xmlns:layout="sap.ui.layout"
+  xmlns="sap.ui.webc.main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:cust="hacking.away.samplelib"
+>
   <Dialog id="editDialog" headerText="{i18n>todo_dialog_edit_header}">
     <content>
       <Input id="editTodo" class="dialogTodoInput" value="{ui>/edit/title}" change=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
@@ -23,6 +31,10 @@
           <Button icon="delete" design="Negative" click=".deleteTodo(${id},$event)" />
         </CustomListItem>
       </List>
+      <cust:CustomChart title="Statistics" color="#A52A2A" type="pie">
+        <cust:CustomChartRecord label="Completed" value="{/completedCount}" />
+        <cust:CustomChartRecord label="Not Completed" value="{/notCompletedCount}" />
+      </cust:CustomChart>
     </layout:VerticalLayout>
   </m:Page>
 </mvc:View>

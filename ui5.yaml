@@ -24,6 +24,16 @@ server:
       mountPath: /v2
       configuration:
         baseUri: "http://localhost:4004/v2"
+    - name: ui5-middleware-servestatic
+      afterMiddleware: compression
+      mountPath: /resources/hacking/away/samplelib
+      configuration:
+        rootPath: "./library/src-gen/hacking/away/samplelib"
+    - name: ui5-middleware-servestatic
+      afterMiddleware: compression
+      mountPath: /resources/chart.js
+      configuration:
+        rootPath: "./library/src-gen/chart.js"
     - name: ui5-middleware-livereload
       afterMiddleware: compression
       configuration:

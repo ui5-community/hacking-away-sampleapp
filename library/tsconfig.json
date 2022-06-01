@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "rootDir": "./",
+    "outDir": "./src-gen",
+    "baseUrl": "./",
+    "paths": {
+      "hacking/away/samplelib/*": ["./src/hacking/away/samplelib/*"]
+    }
+  },
+  "include": ["./src/**/*", "./test/**/*"]
+}
