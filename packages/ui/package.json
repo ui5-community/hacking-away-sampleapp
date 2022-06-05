@@ -17,9 +17,7 @@
     "watch:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files --watch",
     "watch:library": "pnpm --filter @local/library watch",
     "watch:server": "pnpm --filter @local/server watch",
-    "lint": "npm-run-all lint:src lint:test",
-    "lint:src": "eslint src",
-    "lint:test": "eslint test",
+    "lint": "eslint src test",
     "ts-typecheck": "tsc --noEmit",
     "test": "cd test && wdio run wdio.conf.ts"
   },

@@ -1,5 +1,7 @@
 import { CSSColor } from "sap/ui/core/library";
 import CustomChartRecord from "hacking/away/samplelib/CustomChartRecord";
+import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
+import { AggregationBindingInfo } from "sap/ui/base/ManagedObject";
 import { $ControlSettings } from "sap/ui/core/Control";
 
 declare module "./CustomChart" {
@@ -7,10 +9,10 @@ declare module "./CustomChart" {
 	 * Interface defining the settings object used in constructor calls
 	 */
 	interface $CustomChartSettings extends $ControlSettings {
-		type?: string;
-		title?: string;
-		color?: CSSColor;
-		records?: CustomChartRecord[] | CustomChartRecord;
+		type?: string | PropertyBindingInfo;
+		title?: string | PropertyBindingInfo;
+		color?: CSSColor | PropertyBindingInfo | `{${string}}`;
+		records?: CustomChartRecord[] | CustomChartRecord | AggregationBindingInfo | `{${string}}`;
 	}
 
 	export default interface CustomChart {

@@ -12,7 +12,8 @@
   },
   "scripts": {
     "watch": "cds watch",
-    "start": "cds run"
+    "start": "cds run",
+    "lint": "eslint srv"
   },
   "dependencies": {
     "@sap/cds": "^5",
@@ -20,31 +21,7 @@
     "express": "^4"
   },
   "devDependencies": {
+    "eslint": "^8.17.0",
     "sqlite3": "^5.0.8"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
-    },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
-    },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
   }
 }

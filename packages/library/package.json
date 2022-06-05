@@ -17,9 +17,7 @@
     "start": "run-p watch:ts watch:test-ts start:ui5",
     "start:ui5": "ui5 serve --open test-resources/hacking/away/samplelib/CustomChart.html",
     "ts-typecheck": "tsc --noEmit",
-    "lint:src": "eslint src",
-    "lint:test": "eslint test",
-    "lint": "run-s lint:src lint:test"
+    "lint": "eslint src test"
   },
   "dependencies": {
     "chart.js": "^3.8.0"
