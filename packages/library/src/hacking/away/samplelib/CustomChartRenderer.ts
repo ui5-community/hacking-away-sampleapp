@@ -6,7 +6,7 @@ import CustomChart from "./CustomChart";
 
 /**
  * Example renderer.
- * @namespace
+ * @namespace hacking.away.samplelib
  */
 const CustomChartRenderer = {
 	apiVersion: 2, // usage of DOM Patcher

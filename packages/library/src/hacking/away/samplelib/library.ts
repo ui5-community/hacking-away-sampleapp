@@ -27,3 +27,5 @@ sap.ui.getCore().initLibrary({
 // get the library object from global object space because all enums must be attached to it to be usable as UI5 types
 // FIXME: this line is planned to become obsolete and may need to be removed later
 const thisLib: { [key: string]: unknown } = ObjectPath.get("hacking.away.samplelib") as { [key: string]: unknown };
+
+export default thisLib;

@@ -1,4 +1,5 @@
 import Element from "sap/ui/core/Element";
+
 /**
  * @extends Control
  *
@@ -7,7 +8,7 @@ import Element from "sap/ui/core/Element";
  *
  * @constructor
  * @public
- * @name hacking.away.samplelib.CustomChartRecord
+ * @namespace hacking.away.samplelib
  */
 export default class CustomChartRecord extends Element {
 	// The following three lines were generated and should remain as-is to make TypeScript aware of the constructor signatures

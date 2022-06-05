@@ -1,5 +1,6 @@
 import Control from "sap/ui/core/Control";
-import Chart, { ChartConfiguration, ChartItem, ChartType, ChartTypeRegistry } from "chart.js/auto";
+import Chart, { ChartItem, ChartType } from "chart.js/auto";
+
 /**
  * @extends Control
  *
@@ -8,7 +9,7 @@ import Chart, { ChartConfiguration, ChartItem, ChartType, ChartTypeRegistry } fr
  *
  * @constructor
  * @public
- * @name hacking.away.samplelib.CustomChart
+ * @namespace hacking.away.samplelib
  */
 export default class CustomChart extends Control {
 	private chart!: Chart;
