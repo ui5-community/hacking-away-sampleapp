@@ -1,0 +1,50 @@
+{
+  "name": "@local/server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple CAP project.",
+  "author": "Wouter Lemaire",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui5-community/hacking-away-sampleapp.git",
+    "directory": "packages/server"
+  },
+  "scripts": {
+    "watch": "cds watch",
+    "start": "cds run"
+  },
+  "dependencies": {
+    "@sap/cds": "^5",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.8.19",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.0.8"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "@local/ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI5 Application",
+  "author": "Volker Buzek, Wouter Lemaire, Peter Muessig",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "npm-run-all build:ts build:ui5",
+    "build:opt": "npm-run-all build:ts build:ui5:opt",
+    "build:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files",
+    "build:ui5": "ui5 build --clean-dest",
+    "build:ui5:opt": "ui5 build self-contained --clean-dest --all",
+    "start": "npm-run-all --parallel watch:library watch:server watch:ts start:ui5",
+    "start:ui5": "ui5 serve --port 8080 -o index.html",
+    "start:ui5:opt": "ui5 serve  --port 8080 -o index.html --config ui5-dist.yaml",
+    "watch:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files --watch",
+    "watch:library": "pnpm --filter @local/library watch",
+    "watch:server": "pnpm --filter @local/server watch",
+    "lint": "npm-run-all lint:src lint:test",
+    "lint:src": "eslint src",
+    "lint:test": "eslint test",
+    "ts-typecheck": "tsc --noEmit",
+    "test": "cd test && wdio run wdio.conf.ts"
+  },
+  "dependencies": {
+    "@local/library": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@openui5/ts-types-esm": "1.102.1",
+    "@types/jquery": "3.5.14",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "@ui5/cli": "^2.14.9",
+    "@wdio/cli": "^7.20.1",
+    "@wdio/local-runner": "^7.20.1",
+    "@wdio/mocha-framework": "^7.20.0",
+    "@wdio/spec-reporter": "^7.20.0",
+    "babel-preset-transform-ui5": "^7.0.5",
+    "chromedriver": "^101.0.0",
+    "eslint": "^8.17.0",
+    "mobx": "^6.6.0",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3",
+    "ui5-middleware-livereload": "^0.5.13",
+    "ui5-middleware-servestatic": "^0.3.13",
+    "ui5-middleware-simpleproxy": "^0.8.4",
+    "ui5-tooling-modules": "0.3.3",
+    "wdio-chromedriver-service": "^7.3.2",
+    "wdio-ui5-service": "^0.9.1"
+  },
+  "ui5": {
+    "dependencies": [
+      "@local/library",
+      "ui5-middleware-livereload",
+      "ui5-middleware-simpleproxy",
+      "ui5-tooling-modules",
+      "ui5-middleware-servestatic"
+    ]
+  }
+}

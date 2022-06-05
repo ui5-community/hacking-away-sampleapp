@@ -1,8 +1,0 @@
-node_modules/
-dist/
-package-lock.json
-.env
-
-.vscode/
-src-gen/
-test-gen/

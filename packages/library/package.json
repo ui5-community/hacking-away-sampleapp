@@ -1,0 +1,52 @@
+{
+  "name": "@local/library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI5 Library",
+  "author": "Wouter Lemaire",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "run-s build:ts build:test-ts build:ui5",
+    "build:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
+    "build:test-ts": "babel test --out-dir test-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
+    "build:ui5": "ui5 build --clean-dest",
+    "watch": "run-p watch:controls watch:ts watch:test-ts start",
+    "watch:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles  --watch",
+    "watch:test-ts": "babel test --out-dir test-gen --extensions \".ts,.js\" --copy-files --include-dotfiles  --watch",
+    "watch:controls": "npx @ui5/ts-interface-generator --watch",
+    "start": "run-p watch:ts watch:test-ts start:ui5",
+    "start:ui5": "ui5 serve --open test-resources/hacking/away/samplelib/CustomChart.html",
+    "ts-typecheck": "tsc --noEmit",
+    "lint:src": "eslint src",
+    "lint:test": "eslint test",
+    "lint": "run-s lint:src lint:test"
+  },
+  "dependencies": {
+    "chart.js": "^3.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/openui5": "1.102.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "@ui5/cli": "^2.14.9",
+    "@ui5/ts-interface-generator": "^0.5.0",
+    "babel-preset-transform-ui5": "^7.0.5",
+    "eslint": "^8.17.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.7.3",
+    "ui5-middleware-livereload": "^0.5.13",
+    "ui5-middleware-servestatic": "^0.3.13",
+    "ui5-tooling-modules": "^0.3.3"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-middleware-livereload",
+      "ui5-tooling-modules",
+      "ui5-middleware-servestatic"
+    ]
+  }
+}
