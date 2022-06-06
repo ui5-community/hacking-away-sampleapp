@@ -3,9 +3,9 @@ package-lock.json
 .yo-rc.json
 
 # Ignore build output folders
-/dist/**
-/webapp/**
-/server/**
+/packages/*/dist/**
+/packages/*/webapp/**
+/packages/*/*-gen/**
 
 # Ignore files by extension
 /**/*.svg

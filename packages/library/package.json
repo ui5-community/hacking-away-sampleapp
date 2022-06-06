@@ -10,7 +10,7 @@
     "build:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
     "build:test-ts": "babel test --out-dir test-gen --extensions \".ts,.js\" --copy-files --include-dotfiles",
     "build:ui5": "ui5 build --clean-dest",
-    "watch": "run-p watch:controls watch:ts watch:test-ts start",
+    "watch": "run-p watch:controls watch:ts watch:test-ts",
     "watch:ts": "babel src --out-dir src-gen --extensions \".ts,.js\" --copy-files --include-dotfiles  --watch",
     "watch:test-ts": "babel test --out-dir test-gen --extensions \".ts,.js\" --copy-files --include-dotfiles  --watch",
     "watch:controls": "npx @ui5/ts-interface-generator --watch",

@@ -12,8 +12,11 @@
   "packageManager": "pnpm@7.1.7",
   "scripts": {
     "build": "pnpm -r build",
+    "start": "run-p watch:library watch:server start:ui",
     "start:ui": "pnpm --filter @local/ui start",
     "start:lib": "pnpm --filter @local/library start",
+    "watch:library": "pnpm --filter @local/library watch",
+    "watch:server": "pnpm --filter @local/server watch",
     "lint": "pnpm --workspace-concurrency 1 -r lint",
     "lint:staged": "lint-staged",
     "lint:commit": "commitlint -e",

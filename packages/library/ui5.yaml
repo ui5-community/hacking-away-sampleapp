@@ -1,6 +1,6 @@
 specVersion: "2.2"
 metadata:
-  name: "samplelib"
+  name: "hacking.away.samplelib"
 type: library
 resources:
   configuration:
