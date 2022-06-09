@@ -26,9 +26,7 @@ export default class TodoService extends BaseService {
 		return this.odata("/Todos").post<TodoEntity>(todo);
 	}
 	public deleteTodo(id: number) {
-		const todoPath = this.model.createKey("/Todos", {
-			id: id,
-		});
+		const todoPath = this.model.createKey("/Todos", { id });
 		return this.odata(todoPath).delete();
 	}
 	public updateTodo(todo: TodoEntity) {

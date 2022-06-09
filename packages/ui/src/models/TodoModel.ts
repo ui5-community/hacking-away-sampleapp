@@ -5,6 +5,7 @@
 					@typescript-eslint/ban-ts-comment */
 
 import JSONModel from "sap/ui/model/json/JSONModel";
+import { makeAutoObservable, observe } from "mobx";
 
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import TodoService from "../service/TodoService";
@@ -14,6 +15,8 @@ export type todoModelData = {
 	todoItems: Array<TodoItem>;
 	completedCount: number;
 	notCompletedCount: number;
+	new: TodoItem;
+	edit: TodoItem;
 };
 
 /**
@@ -22,18 +25,25 @@ export type todoModelData = {
 export default class TodoModel extends JSONModel {
 	private url: string;
 	private todoService: TodoService;
-	private data: todoModelData;
+	private oData: todoModelData;
 	constructor(url: string) {
-		super();
-		this.url = url;
-		const model = new ODataModel(url);
-		this.todoService = new TodoService(model);
-		this.data = {
+		super({
 			todoItems: [],
 			completedCount: 0,
 			notCompletedCount: 0,
-		};
-		this.updateData();
+			new: new TodoItem(),
+			edit: new TodoItem(),
+		});
+
+		makeAutoObservable(this.getData());
+		observe(this.getData(), () => {
+			this.updateBindings(true);
+		});
+
+		this.url = url;
+		const model = new ODataModel(url);
+		this.todoService = new TodoService(model);
+
 		this.read()
 			.then(() => {
 				console.log("ok");
@@ -42,18 +52,20 @@ export default class TodoModel extends JSONModel {
 				console.log("nOk");
 			});
 	}
-	updateData() {
-		this.setData(this.data);
+	resetNewTodo() {
+		this.oData.new = new TodoItem();
+	}
+	setUpdateTodo(todo: TodoItem) {
+		this.oData.edit = todo;
 	}
 	getTodoItem(id: number) {
-		return this.data.todoItems.find((item) => item.getId() === id);
+		return this.oData.todoItems.find((item) => item.getId() === id);
 	}
 	async read(): Promise<void> {
 		const response = await this.todoService.getTodos();
-		this.data.todoItems = response.data.results.map((item) => new TodoItem(item));
-		this.data.completedCount = this.data.todoItems.filter((item) => item.getCompleted()).length || 0;
-		this.data.notCompletedCount = this.data.todoItems.filter((item) => !item.getCompleted()).length || 0;
-		this.updateData();
+		this.oData.todoItems = response.data.results.map((item) => new TodoItem(item));
+		this.oData.completedCount = this.oData.todoItems.filter((item) => item.getCompleted()).length || 0;
+		this.oData.notCompletedCount = this.oData.todoItems.filter((item) => !item.getCompleted()).length || 0;
 	}
 
 	async create(title: string): Promise<void> {

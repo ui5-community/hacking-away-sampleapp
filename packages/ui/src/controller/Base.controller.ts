@@ -1,14 +1,15 @@
 import Controller from "sap/ui/core/mvc/Controller";
-import UIModel, { UIModelData } from "../models/UIModel";
+import TodoModel, { todoModelData } from "../models/TodoModel";
 
 /**
  * @namespace hacking.away.sampleapp.controller
  */
 export default class BaseController extends Controller {
-	protected uiModelData: UIModelData;
+	protected todoModelData: todoModelData;
+	protected todoModel: TodoModel;
 
 	public onInit(): void {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-		this.uiModelData = (this.getOwnerComponent().getModel("ui") as UIModel).getData() as UIModelData;
+		this.todoModel = this.getOwnerComponent().getModel() as TodoModel;
+		this.todoModelData = this.todoModel.getData() as todoModelData;
 	}
 }

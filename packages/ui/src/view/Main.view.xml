@@ -9,25 +9,25 @@
 >
   <Dialog id="editDialog" headerText="{i18n>todo_dialog_edit_header}">
     <content>
-      <Input id="editTodo" class="dialogTodoInput" value="{ui>/edit/title}" change=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
+      <Input id="editTodo" class="dialogTodoInput" value="{/edit/title}" change=".closeEditDialog(${/edit/id}, ${/edit/title})" />
     </content>
     <footer>
-      <Button class="dialogCloseButton" design="Emphasized" text="{i18n>todo_dialog_close_button}" click=".closeEditDialog(${ui>/edit/id}, ${ui>/edit/title})" />
+      <Button class="dialogCloseButton" design="Emphasized" text="{i18n>todo_dialog_close_button}" click=".closeEditDialog(${/edit/id}, ${/edit/title})" />
     </footer>
   </Dialog>
 
   <m:Page id="todoPage">
     <layout:VerticalLayout width="100%">
       <layout:HorizontalLayout>
-        <Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{ui>/new/title}" />
-        <Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${ui>/new/title})" icon="add" />
+        <Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{/new/title}" />
+        <Button text="{i18n>todo_button_add}" design="Emphasized" click=".addTodo(${/new/title})" icon="add" />
       </layout:HorizontalLayout>
 
       <List id="todoList" items="{/todoItems}">
         <CustomListItem class="todoItems">
           <CheckBox checked="{completed}" change=".completeTodo(${id}, ${completed},$event)" />
           <Label text="{title}" />
-          <Button icon="edit" click=".openEditDialog(${id}, ${title})" />
+          <Button icon="edit" click=".openEditDialog(${id}, ${title},$event)" />
           <Button icon="delete" design="Negative" click=".deleteTodo(${id},$event)" />
         </CustomListItem>
       </List>

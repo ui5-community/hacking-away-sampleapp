@@ -26,7 +26,7 @@ export default class MainController extends BaseController {
 
 	async addTodo(title: string): Promise<void> {
 		await this.getTodoModel().create(title);
-		this.uiModelData.new.title = "";
+		this.todoModel.resetNewTodo();
 	}
 
 	async deleteTodo(id: number, event: Event): Promise<void> {
@@ -34,11 +34,10 @@ export default class MainController extends BaseController {
 		await this.getTodoModel().delete(todoItem);
 	}
 
-	openEditDialog(id: number, title: string): void {
-		this.uiModelData.edit = {
-			id,
-			title,
-		};
+	openEditDialog(id: number, title: string, event: Event): void {
+		const todoItem = (event.getSource() as Button).getBindingContext().getObject() as TodoItem;
+		this.todoModel.setUpdateTodo(todoItem);
+		// this.todoModelData.edit = todoItem;
 		(this.byId("editDialog") as Dialog).show(false);
 	}
 
