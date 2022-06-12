@@ -6,6 +6,7 @@ import TodoModel from "../models/TodoModel";
 import Event from "sap/ui/base/Event";
 import Button from "sap/m/Button";
 import TodoItem from "../models/TodoItem";
+import MessageToast from "sap/m/MessageToast";
 
 /**
  * @namespace hacking.away.sampleapp.controller
@@ -34,7 +35,7 @@ export default class MainController extends BaseController {
 		await this.getTodoModel().delete(todoItem);
 	}
 
-	openEditDialog(id: number, title: string, event: Event): void {
+	async openEditDialog(id: number, title: string, event: Event): Promise<void> {
 		const todoItem = (event.getSource() as Button).getBindingContext().getObject() as TodoItem;
 		this.todoModel.setUpdateTodo(todoItem);
 		// this.todoModelData.edit = todoItem;
@@ -49,5 +50,13 @@ export default class MainController extends BaseController {
 	async completeTodo(id: number, checked: boolean, event: Event): Promise<void> {
 		const todoItem = (event.getSource() as Button).getBindingContext().getObject() as TodoItem;
 		await this.getTodoModel().update(todoItem);
+	}
+
+	public async openAboutDialog(): Promise<void> {
+		const closeResult = (await this.openFragment({
+			name: "hacking.away.sampleapp.view.dialog.About",
+			data: { param: "This is UI5con!" },
+		})) as string;
+		MessageToast.show(closeResult);
 	}
 }

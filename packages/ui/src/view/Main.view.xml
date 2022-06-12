@@ -17,6 +17,9 @@
   </Dialog>
 
   <m:Page id="todoPage">
+    <m:headerContent>
+      <m:Button icon="sap-icon://hint" tooltip="About" press=".openAboutDialog" />
+    </m:headerContent>
     <layout:VerticalLayout width="100%">
       <layout:HorizontalLayout>
         <Input id="newTodo" placeholder="{i18n>todo_input_placeholder}" value="{/new/title}" />
