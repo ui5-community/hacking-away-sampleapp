@@ -27,7 +27,6 @@ export default class CustomChart extends Control {
 				defaultValue: "line",
 			},
 			title: "string",
-			color: "sap.ui.core.CSSColor",
 		},
 		aggregations: {
 			records: {
@@ -46,8 +45,12 @@ export default class CustomChart extends Control {
 			datasets: [
 				{
 					label: this.getTitle(),
-					backgroundColor: this.getColor(),
-					borderColor: this.getColor(),
+					backgroundColor: aRecords.map((record) => {
+						return record.getColor();
+					}),
+					borderColor: aRecords.map((record) => {
+						return record.getColor();
+					}),
 					data: aRecords.map((record) => {
 						return record.getValue();
 					}),

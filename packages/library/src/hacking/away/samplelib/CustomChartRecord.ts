@@ -21,6 +21,7 @@ export default class CustomChartRecord extends Element {
 		library: "hacking.away.samplelib",
 		properties: {
 			label: "string",
+			color: "sap.ui.core.CSSColor",
 			value: "float",
 		},
 	};

@@ -13,7 +13,6 @@ const CustomChartRenderer = {
 
 	render: function (rm: RenderManager, chart: CustomChart) {
 		rm.openStart("div", chart);
-		rm.style("color", chart.getColor());
 		rm.class("chart");
 		rm.openEnd();
 

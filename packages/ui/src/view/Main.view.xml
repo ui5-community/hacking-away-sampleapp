@@ -34,10 +34,12 @@
           <Button icon="delete" design="Negative" click=".deleteTodo(${id},$event)" />
         </CustomListItem>
       </List>
-      <cust:CustomChart title="Statistics" color="#A52A2A" type="pie">
-        <cust:CustomChartRecord label="Completed" value="{/completedCount}" />
-        <cust:CustomChartRecord label="Not Completed" value="{/notCompletedCount}" />
-      </cust:CustomChart>
+      <layout:VerticalLayout width="50%">
+        <cust:CustomChart title="Statistics" type="pie">
+          <cust:CustomChartRecord label="Completed" color="#abeb34" value="{/completedCount}" />
+          <cust:CustomChartRecord label="Not Completed" color="#A52A2A" value="{/notCompletedCount}" />
+        </cust:CustomChart>
+      </layout:VerticalLayout>
     </layout:VerticalLayout>
   </m:Page>
 </mvc:View>
