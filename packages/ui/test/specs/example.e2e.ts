@@ -5,8 +5,9 @@ import CustomListItem from "sap/m/CustomListItem";
 import Input from "sap/m/Input";
 import Label from "sap/m/Label";
 import List from "sap/m/List";
+
 describe("basic usage", () => {
-	it("should start the app", async () => {
+	it("should assert ToDos can be added", async () => {
 		const inputControl = await browser.asControl({
 			selector: {
 				id: "newTodo",
@@ -28,23 +29,25 @@ describe("basic usage", () => {
 			// @ts-ignore
 			.getItems(true);
 
-		// works - wdio native
+		//>>> selecting a UI5 webcomponent
+		//> works one - wdio native
 		// await $('#__component0---main--newTodo').shadow$('input').setValue('peter rulez')
 
-		// works two - ui5 web components native
+		//> works two - ui5 web components native
 		const inputSelector = {
 			selector: {
 				id: "newTodo",
 				viewName: "hacking.away.sampleapp.view.Main"
 			}
 		};
-		// eslint-disable-next-line @typescript-eslint/await-thenable
 		await (browser.asControl(inputSelector) as unknown as Input).setValue("peter rulez");
 
-		// works three - wdi5 + wdio
+		//> works three - wdi5 + wdio
 		// const input = await browser.asControl(inputSelector)
 		// await input.focus()
 		// await browser.keys("peter rulez")
+
+		//> works four - wdi5 only
 
 		// send off the newly entered todo item
 		await (
