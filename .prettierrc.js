@@ -11,6 +11,7 @@ module.exports = {
 	singleQuote: false,
 	printWidth: 200,
 	endOfLine: "lf",
+	trailingComma: "none",
 	tabWidth: 4,
 	useTabs: true,
 	overrides: [
@@ -20,8 +21,8 @@ module.exports = {
 				useTabs: false,
 				tabWidth: 2,
 				keySeparator: "=",
-				xmlWhitespaceSensitivity: "ignore",
-			},
-		},
-	],
+				xmlWhitespaceSensitivity: "ignore"
+			}
+		}
+	]
 };
