@@ -17,13 +17,13 @@ describe("basic usage", () => {
 	});
 	it("should add a ToDo", async () => {
 		// retrieve the amount of items in the list
-		const beforeListItems = (
-			(await browser.asControl({
+		const beforeListItems = await (
+			browser.asControl({
 				selector: {
 					id: "todoList",
 					viewName: "hacking.away.sampleapp.view.Main"
 				}
-			})) as unknown as List
+			}) as unknown as List
 		)
 			// @ts-ignore
 			.getItems(true);
