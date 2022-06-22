@@ -1,48 +1,49 @@
 {
-    "name": "hacking.away.sampleapp-reactor",
-    "version": "0.0.0",
-    "private": true,
-    "description": "TypeScript UI5 sample application show-casing the latest shit!",
-    "author": "Volker Buzek, Wouter Lemaire, Peter Muessig",
-    "license": "Apache-2.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ui5-community/hacking-away-sampleapp.git"
-    },
-    "engines": {
-        "node": ">=16"
-    },
-    "packageManager": "pnpm@7.1.7",
-    "scripts": {
-        "build": "pnpm -r build",
-        "start": "run-p watch:library watch:server start:ui",
-        "start:ui": "pnpm --filter @local/ui start",
-        "start:lib": "pnpm --filter @local/library start",
-        "watch:library": "pnpm --filter @local/library watch",
-        "watch:server": "pnpm --filter @local/server watch",
-        "lint": "pnpm --workspace-concurrency 1 -r lint",
-        "lint:staged": "lint-staged",
-        "lint:commit": "commitlint -e",
-        "prettier": "prettier --write .",
-        "prettier:staged": "pretty-quick --staged --verbose",
-        "prepare": "node ./.husky/skip.js || husky install",
-        "hooks:pre-commit": "npm-run-all --sequential prettier:staged lint:staged",
-        "hooks:pre-push": "npm-run-all --sequential lint:commit",
-        "ncu": "for d in ./packages/*/ ; do (cd \"$d\" && ncu); done",
-        "ncu-u": "for d in ./packages/*/ ; do (cd \"$d\" && ncu -u); done"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^17.0.2",
-        "@commitlint/config-conventional": "^17.0.2",
-        "@prettier/plugin-xml": "^2.2.0",
-        "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.17.0",
-        "husky": "^8.0.1",
-        "lint-staged": "^13.0.0",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^2.6.2",
-        "prettier-plugin-properties": "^0.1.0",
-        "pretty-quick": "^3.1.3",
-        "wait-on": "^6.0.1"
-    }
+  "name": "hacking.away.sampleapp-reactor",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TypeScript UI5 sample application show-casing the latest shit!",
+  "author": "Volker Buzek, Wouter Lemaire, Peter Muessig",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui5-community/hacking-away-sampleapp.git"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "packageManager": "pnpm@7.1.7",
+  "scripts": {
+    "build": "pnpm -r build",
+    "start": "run-p watch:library watch:server start:ui",
+    "start:ui": "pnpm --filter @local/ui start",
+    "start:lib": "pnpm --filter @local/library start",
+    "watch:library": "pnpm --filter @local/library watch",
+    "watch:server": "pnpm --filter @local/server watch",
+    "lint": "pnpm --workspace-concurrency 1 -r lint",
+    "lint:staged": "lint-staged",
+    "lint:commit": "commitlint -e",
+    "prettier": "prettier --write .",
+    "prettier:staged": "pretty-quick --staged --verbose",
+    "prepare": "node ./.husky/skip.js || husky install",
+    "hooks:pre-commit": "npm-run-all --sequential prettier:staged lint:staged",
+    "hooks:pre-push": "npm-run-all --sequential lint:commit",
+    "ncu": "for d in ./packages/*/ ; do (cd \"$d\" && ncu); done",
+    "ncu-u": "for d in ./packages/*/ ; do (cd \"$d\" && ncu -u); done",
+    "test": "pnpm --filter @local/ui test"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@prettier/plugin-xml": "^2.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.17.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "prettier-plugin-properties": "^0.1.0",
+    "pretty-quick": "^3.1.3",
+    "wait-on": "^6.0.1"
+  }
 }
