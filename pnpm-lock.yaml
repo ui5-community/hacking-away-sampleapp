@@ -111,7 +111,7 @@ importers:
       ui5-middleware-simpleproxy: ^0.8.4
       ui5-tooling-modules: 0.3.3
       wdio-chromedriver-service: ^7.3.2
-      wdio-ui5-service: ^0.9.4
+      wdio-ui5-service: ^0.9.6
     dependencies:
       "@local/library": link:../library
     devDependencies:
@@ -140,7 +140,7 @@ importers:
       ui5-middleware-simpleproxy: 0.8.4
       ui5-tooling-modules: 0.3.3
       wdio-chromedriver-service: 7.3.2_em5lzlhs3fnkzz6ra5k2giihqm
-      wdio-ui5-service: 0.9.4
+      wdio-ui5-service: 0.9.6
 
 packages:
   /@ampproject/remapping/2.2.0:
@@ -10087,8 +10087,8 @@ packages:
       - supports-color
     dev: true
 
-  /wdio-ui5-service/0.9.4:
-    resolution: { integrity: sha512-NNMU/DVsoEkMfytIBdEWL7awW9ZmIQFXSvFAU9f8AZiVI2cResYdaqRNXQydwZRYs6nB+5TqG0OuHN5+YuxsJg== }
+  /wdio-ui5-service/0.9.6:
+    resolution: { integrity: sha512-bi58fVNiJlBJ170J0JPk7oExu2feROFLCzJu6E1FKpdPfPJRTBWjOlOIavY1nNNDPrihwlA8ZMWFOF+FiwYCvg== }
     engines: { node: ">=14", npm: ">=7" }
     dependencies:
       semver: 7.3.7
