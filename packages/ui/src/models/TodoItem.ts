@@ -38,7 +38,7 @@ export default class TodoItem extends BaseObject<TodoEntity> {
 		return {
 			id: this.id,
 			title: this.title,
-			completed: this.completed,
+			completed: this.completed
 		};
 	}
 }

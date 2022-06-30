@@ -6,7 +6,7 @@ import { support } from "sap/ui/Device";
  */
 export default class Component extends UIComponent {
 	public static metadata = {
-		manifest: "json",
+		manifest: "json"
 	};
 
 	private contentDensityClass: string;

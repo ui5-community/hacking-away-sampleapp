@@ -51,7 +51,7 @@ export default class Base extends Controller {
 			let newController: Controller;
 			try {
 				newController = (await Controller.create({
-					name: controllerPath + config.name,
+					name: controllerPath + config.name
 				})) as Controller;
 			} catch (error) {
 				console.log("Dialog without controller. Just continue with the current controller for the dialog");
@@ -60,7 +60,7 @@ export default class Base extends Controller {
 			const newFragment = (await Fragment.load({
 				id: id,
 				name: viewPath + config.name,
-				controller: newController,
+				controller: newController
 			})) as unknown as Fragment;
 			_fragments[id] = { controller: newController as DialogController, fragment: newFragment };
 			this.getMainView().addDependent(_fragments[id].fragment as unknown as UI5Element);

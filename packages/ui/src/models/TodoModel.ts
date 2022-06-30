@@ -32,7 +32,7 @@ export default class TodoModel extends JSONModel {
 			completedCount: 0,
 			notCompletedCount: 0,
 			new: new TodoItem(),
-			edit: new TodoItem(),
+			edit: new TodoItem()
 		});
 
 		makeAutoObservable(this.getData());

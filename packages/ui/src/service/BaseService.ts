@@ -47,7 +47,7 @@ export default class BaseService extends Object {
 					params.success = (result: T, response): void => {
 						const responseResult: response<T> = {
 							data: result,
-							response: response,
+							response: response
 						};
 						resolve(responseResult);
 					};
@@ -61,13 +61,13 @@ export default class BaseService extends Object {
 					}
 				});
 				return promise;
-			},
+			}
 		};
 		return {
 			get: <T>(params?: parameters<T>): Promise<response<T>> => core.ajax("read", url, params),
 			post: <T>(data: T, params?: parameters<T>): Promise<response<T>> => core.ajax("create", url, params, data),
 			put: <T>(data: T, params?: parameters<T>): Promise<response<T>> => core.ajax("update", url, params, data),
-			delete: <T>(params?: parameters<T>): Promise<response<T>> => core.ajax("remove", url, params),
+			delete: <T>(params?: parameters<T>): Promise<response<T>> => core.ajax("remove", url, params)
 		};
 	}
 }

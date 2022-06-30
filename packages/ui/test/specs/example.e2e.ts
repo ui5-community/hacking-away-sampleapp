@@ -6,14 +6,26 @@ import Input from "sap/m/Input";
 import Label from "sap/m/Label";
 import List from "sap/m/List";
 
+const addButtonSelector = {
+	selector: {
+		properties: {
+			icon: "add"
+		},
+		controlType: "sap.ui.webc.main.Button",
+		viewName: "hacking.away.sampleapp.view.Main"
+	}
+};
+
+const inputSelector = {
+	selector: {
+		id: "newTodo",
+		viewName: "hacking.away.sampleapp.view.Main"
+	}
+};
+
 describe("basic usage", () => {
 	it("should assert ToDos can be added", async () => {
-		const inputControl = await browser.asControl({
-			selector: {
-				id: "newTodo",
-				viewName: "hacking.away.sampleapp.view.Main"
-			}
-		});
+		const inputControl = await browser.asControl(inputSelector);
 		expect(inputControl.getVisible()).toBeTruthy();
 	});
 	it("should add a ToDo", async () => {
@@ -34,12 +46,7 @@ describe("basic usage", () => {
 		// await $('#__component0---main--newTodo').shadow$('input').setValue('peter rulez')
 
 		//> works two - ui5 web components native
-		const inputSelector = {
-			selector: {
-				id: "newTodo",
-				viewName: "hacking.away.sampleapp.view.Main"
-			}
-		};
+
 		await (browser.asControl(inputSelector) as unknown as Input).setValue("peter rulez");
 
 		//> works three - wdi5 + wdio
@@ -50,17 +57,7 @@ describe("basic usage", () => {
 		//> works four - wdi5 only
 
 		// send off the newly entered todo item
-		await (
-			browser.asControl({
-				selector: {
-					properties: {
-						icon: "add"
-					},
-					controlType: "sap.ui.webc.main.Button",
-					viewName: "hacking.away.sampleapp.view.Main"
-				}
-			}) as unknown as WDI5Control
-		).press();
+		await (browser.asControl(addButtonSelector) as unknown as WDI5Control).press();
 
 		// retrieve the amount of items in the list after adding the above todo
 		const list = (await browser.asControl({
@@ -81,5 +78,10 @@ describe("basic usage", () => {
 		const labelText = await label.getText();
 
 		expect(labelText).toEqual("peter rulez");
+	});
+	it.only("should add another ToDo", async () => {
+		await (browser.asControl(inputSelector) as unknown as Input).setValue("UI5con rulez");
+		await (browser.asControl(addButtonSelector) as unknown as WDI5Control).press();
+		expect(true).toBe(true);
 	});
 });

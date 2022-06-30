@@ -21,7 +21,7 @@ const CustomChartRenderer = {
 		rm.close("canvas");
 
 		rm.close("div");
-	},
+	}
 };
 
 export default CustomChartRenderer;

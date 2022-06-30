@@ -10,18 +10,18 @@ export default {
 	init: function () {
 		// create
 		const mockServer = new MockServer({
-			rootUri: "/",
+			rootUri: "/"
 		});
 
 		// simulate against the metadata and mock data
 		mockServer.simulate("../localService/metadata.xml", {
 			sMockdataBaseUrl: "../localService/mockdata",
-			bGenerateMissingMockData: true,
+			bGenerateMissingMockData: true
 		});
 
 		// start
 		mockServer.start();
 
 		Log.info("Running the app with mock data");
-	},
+	}
 };

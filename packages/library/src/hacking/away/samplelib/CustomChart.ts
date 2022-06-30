@@ -24,16 +24,16 @@ export default class CustomChart extends Control {
 		properties: {
 			type: {
 				type: "string",
-				defaultValue: "line",
+				defaultValue: "line"
 			},
-			title: "string",
+			title: "string"
 		},
 		aggregations: {
 			records: {
-				type: "hacking.away.samplelib.CustomChartRecord",
-			},
+				type: "hacking.away.samplelib.CustomChartRecord"
+			}
 		},
-		defaultAggregation: "records",
+		defaultAggregation: "records"
 	};
 
 	private getChartData() {
@@ -53,9 +53,9 @@ export default class CustomChart extends Control {
 					}),
 					data: aRecords.map((record) => {
 						return record.getValue();
-					}),
-				},
-			],
+					})
+				}
+			]
 		};
 	}
 	public onAfterRendering() {
@@ -65,8 +65,8 @@ export default class CustomChart extends Control {
 				data: this.getChartData(),
 				options: {
 					responsive: true,
-					animation: false,
-				},
+					animation: false
+				}
 			});
 		} else {
 			this.chart.data = this.getChartData();

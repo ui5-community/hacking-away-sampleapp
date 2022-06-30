@@ -13,7 +13,7 @@ export const config: Options.Testrunner = {
 		logLevel: "error", // [optional] error | verbose | silent, default: "error"
 		url: "index.html", // [mandatory] {string} name of your bootstrap html file. If your server autoredirects to a 'domain:port/'-like root url, use empty string ''
 		skipInjectUI5OnStart: false, // [optional] {boolean}, default: false; true when UI5 is not on the start page, you need to later call <wdioUI5service>.injectUI5() manually
-		waitForUI5Timeout: 15000, // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
+		waitForUI5Timeout: 15000 // [optional] {number}, default: 15000; maximum waiting time in milliseconds while checking for UI5 availability
 	},
 	//
 	// ====================
@@ -39,8 +39,8 @@ export const config: Options.Testrunner = {
 		// for all available options
 		tsNodeOpts: {
 			transpileOnly: true,
-			project: "./tsconfig.json",
-		},
+			project: "./tsconfig.json"
+		}
 		// tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
 		// do please make sure "tsconfig-paths" is installed as dependency
 		// tsConfigPathsOpts: {
@@ -98,12 +98,12 @@ export const config: Options.Testrunner = {
 			maxInstances: 5,
 			//
 			browserName: "chrome",
-			acceptInsecureCerts: true,
+			acceptInsecureCerts: true
 			// If outputDir is provided WebdriverIO can capture driver session logs
 			// it is possible to configure which logTypes to include/exclude.
 			// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
 			// excludeDriverLogs: ['bugreport', 'server'],
-		},
+		}
 	],
 	//
 	// ===================
@@ -181,8 +181,8 @@ export const config: Options.Testrunner = {
 	// See the full list at http://mochajs.org/
 	mochaOpts: {
 		ui: "bdd",
-		timeout: 60000,
-	},
+		timeout: 60000
+	}
 	//
 	// =====
 	// Hooks

@@ -22,7 +22,7 @@ export default class CustomChartRecord extends Element {
 		properties: {
 			label: "string",
 			color: "sap.ui.core.CSSColor",
-			value: "float",
-		},
+			value: "float"
+		}
 	};
 }

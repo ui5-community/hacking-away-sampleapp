@@ -31,7 +31,7 @@ export default class TodoService extends BaseService {
 	}
 	public updateTodo(todo: TodoEntity) {
 		const todoPath = this.model.createKey("/Todos", {
-			id: todo.id,
+			id: todo.id
 		});
 		return this.odata(todoPath).put(todo);
 	}

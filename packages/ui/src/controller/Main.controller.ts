@@ -55,7 +55,7 @@ export default class MainController extends BaseController {
 	public async openAboutDialog(): Promise<void> {
 		const closeResult = (await this.openFragment({
 			name: "hacking.away.sampleapp.view.dialog.About",
-			data: { param: "This is UI5con!" },
+			data: { param: "This is UI5con!" }
 		})) as string;
 		MessageToast.show(closeResult);
 	}
