@@ -102,6 +102,8 @@ importers:
       babel-preset-transform-ui5: ^7.0.5
       chromedriver: ^103.0.0
       eslint: ^8.17.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
       mobx: ^6.6.0
       npm-run-all: ^4.1.5
       ts-node: ^10.8.1
@@ -131,6 +133,8 @@ importers:
       babel-preset-transform-ui5: 7.0.5
       chromedriver: 103.0.0
       eslint: 8.17.0
+      eslint-config-prettier: 8.5.0_eslint@8.17.0
+      eslint-plugin-prettier: 4.2.1_5qpfauusvyeds22ldzy2wqecte
       mobx: 6.6.0
       npm-run-all: 4.1.5
       ts-node: 10.8.1_typescript@4.7.3
@@ -3445,7 +3449,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -4882,6 +4886,31 @@ packages:
       estraverse: 4.3.0
     dev: true
 
+  /eslint-config-prettier/8.5.0_eslint@8.17.0:
+    resolution: { integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q== }
+    hasBin: true
+    peerDependencies:
+      eslint: ">=7.0.0"
+    dependencies:
+      eslint: 8.17.0
+    dev: true
+
+  /eslint-plugin-prettier/4.2.1_5qpfauusvyeds22ldzy2wqecte:
+    resolution: { integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ== }
+    engines: { node: ">=12.0.0" }
+    peerDependencies:
+      eslint: ">=7.28.0"
+      eslint-config-prettier: "*"
+      prettier: ">=2.0.0"
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.17.0
+      eslint-config-prettier: 8.5.0_eslint@8.17.0
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
   /eslint-scope/5.1.1:
     resolution: { integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw== }
     engines: { node: ">=8.0.0" }
@@ -5277,6 +5306,10 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: { integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q== }
+    dev: true
+
+  /fast-diff/1.2.0:
+    resolution: { integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w== }
     dev: true
 
   /fast-glob/3.2.11:
@@ -8104,7 +8137,7 @@ packages:
       npm-pick-manifest: 3.0.2
       npm-registry-fetch: 4.0.7
       osenv: 0.1.5
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       promise-retry: 1.1.1
       protoduck: 5.0.1
       rimraf: 2.7.1
@@ -8334,6 +8367,13 @@ packages:
     engines: { node: ">=4" }
     dev: true
 
+  /prettier-linter-helpers/1.0.0:
+    resolution: { integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w== }
+    engines: { node: ">=6.0.0" }
+    dependencies:
+      fast-diff: 1.2.0
+    dev: true
+
   /prettier-plugin-properties/0.1.0_prettier@2.7.1:
     resolution: { integrity: sha512-lObSgVaTVWSyYWxKMOzRGmvQp64S1qumu5vS91ZlMc198ay8EGUuDH+Tc019iMJXc2KNpdAYif2qAJA6mjTkgA== }
     peerDependencies:
@@ -8414,6 +8454,18 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
+    dev: true
+    optional: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: { integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g== }
+    peerDependencies:
+      bluebird: "*"
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise-retry/1.1.1:
