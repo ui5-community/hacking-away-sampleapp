@@ -79,9 +79,4 @@ describe("basic usage", () => {
 
 		expect(labelText).toEqual("peter rulez");
 	});
-	it.only("should add another ToDo", async () => {
-		await (browser.asControl(inputSelector) as unknown as Input).setValue("UI5con rulez");
-		await (browser.asControl(addButtonSelector) as unknown as WDI5Control).press();
-		expect(true).toBe(true);
-	});
 });
