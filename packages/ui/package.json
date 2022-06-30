@@ -18,7 +18,7 @@
     "lint": "run-p lint:eslint lint:ts-typecheck",
     "lint:eslint": "eslint src test",
     "lint:ts-typecheck": "tsc --noEmit",
-    "test": "cd test && wdio run wdio.conf.ts"
+    "wdi5": "cd test && wdio run wdio.conf.ts"
   },
   "dependencies": {
     "@local/library": "^1.0.0"
