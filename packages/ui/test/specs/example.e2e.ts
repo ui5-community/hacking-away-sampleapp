@@ -46,7 +46,9 @@ describe("basic usage", () => {
 
 		//> works two - ui5 web components native
 
-		await (browser.asControl(inputSelector) as unknown as Input).setValue("peter rulez");
+		const text = "peter rulez";
+
+		await (browser.asControl(inputSelector) as unknown as Input).setValue(text);
 
 		//> works three - wdi5 + wdio
 		// const input = await browser.asControl(inputSelector)
