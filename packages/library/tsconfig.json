@@ -13,6 +13,7 @@
     "rootDir": "./",
     "outDir": "./src-gen",
     "baseUrl": "./",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@openui5/ts-types-esm"],
     "paths": {
       "hacking/away/samplelib/*": ["./src/hacking/away/samplelib/*"]
     }

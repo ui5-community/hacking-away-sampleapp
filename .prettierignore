@@ -1,4 +1,5 @@
 # Ignore files
+pnpm-lock.yaml
 package-lock.json
 .yo-rc.json
 

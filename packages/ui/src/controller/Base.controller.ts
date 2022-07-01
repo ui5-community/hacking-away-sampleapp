@@ -55,6 +55,7 @@ export default class Base extends Controller {
 				})) as Controller;
 			} catch (error) {
 				console.log("Dialog without controller. Just continue with the current controller for the dialog");
+				// eslint-disable-next-line
 				newController = this;
 			}
 			const newFragment = (await Fragment.load({

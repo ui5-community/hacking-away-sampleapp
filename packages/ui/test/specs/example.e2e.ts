@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/await-thenable */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/await-thenable,@typescript-eslint/ban-ts-comment,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access */
 import { WDI5Control } from "wdio-ui5-service/dist/lib/wdi5-control";
 import CustomListItem from "sap/m/CustomListItem";
 import Input from "sap/m/Input";

@@ -13,7 +13,8 @@
   "scripts": {
     "watch": "cds watch",
     "start": "cds run",
-    "lint": "eslint srv"
+    "lint": "eslint srv",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "@sap/cds": "^5",

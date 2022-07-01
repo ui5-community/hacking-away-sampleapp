@@ -21,7 +21,7 @@
     "watch:library": "pnpm --filter @local/library watch",
     "watch:server": "pnpm --filter @local/server watch",
     "lint": "pnpm --workspace-concurrency 1 -r lint",
-    "lint:staged": "lint-staged",
+    "lint:staged": "pnpm -r lint:staged",
     "lint:commit": "commitlint -e",
     "prettier": "prettier --write .",
     "prettier:staged": "pretty-quick --staged --verbose",

@@ -11,9 +11,3 @@
 /**/*.properties
 /**/*.yaml
 /**/*.yml
-
-# Additionally ignore folders
-/packages/library/dist/
-/packages/library/*-gen/
-/packages/ui/dist/
-/packages/ui/webapp/

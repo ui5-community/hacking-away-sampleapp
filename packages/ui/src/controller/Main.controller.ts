@@ -35,7 +35,7 @@ export default class MainController extends BaseController {
 		await this.getTodoModel().delete(todoItem);
 	}
 
-	async openEditDialog(id: number, title: string, event: Event): Promise<void> {
+	openEditDialog(id: number, title: string, event: Event): void {
 		const todoItem = (event.getSource() as Button).getBindingContext().getObject() as TodoItem;
 		this.todoModel.setUpdateTodo(todoItem);
 		// this.todoModelData.edit = todoItem;

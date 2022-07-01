@@ -18,6 +18,7 @@
     "lint": "run-p lint:eslint lint:ts-typecheck",
     "lint:eslint": "eslint src test",
     "lint:ts-typecheck": "tsc --noEmit",
+    "lint:staged": "lint-staged",
     "wdi5": "cd test && wdio run wdio.conf.ts"
   },
   "dependencies": {

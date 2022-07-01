@@ -1,7 +1,20 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "types": ["node", "webdriverio/async", "@wdio/mocha-framework", "expect-webdriverio", "wdio-ui5-service/dist", "@openui5/ts-types-esm"],
-    "target": "es2015"
-  }
+    "target": "es2015",
+    "module": "es2015",
+    "skipLibCheck": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "typeRoots": ["node", "../node_modules/@wdio/mocha-framework", "../node_modules/@types", "../node_modules/@openui5/ts-types-esm"]
+  },
+  "include": ["**/*"],
+  "exclude": ["./dist/"]
 }
