@@ -3,9 +3,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { Options } from "@wdio/types";
+import { wdi5Config } from "wdio-ui5-service/dist/types/wdi5.types";
 
-export const config: Options.Testrunner = {
+export const config: wdi5Config = {
 	// @ts-ignore
 	wdi5: {
 		screenshotPath: require("path").join("test", "screenshots"), // [optional] {string}, default: ""
