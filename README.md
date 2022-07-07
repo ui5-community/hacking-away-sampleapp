@@ -51,13 +51,11 @@ The end-to-end tests are done by using WDI5: https://github.com/ui5-community/wd
 
 ## Preparation
 
-Use `npm` (or `yarn`) to install the dependencies:
+Use `npm` to install the dependencies:
 
 ```sh
 npm i
 ```
-
-(To use yarn, just do `yarn` instead.)
 
 ## Run the App
 
