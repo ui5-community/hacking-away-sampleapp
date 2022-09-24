@@ -4,7 +4,7 @@
     "module": "es2015",
     "skipLibCheck": true,
     "preserveConstEnums": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "sourceMap": false,
     "allowJs": true,
     "strict": true,
