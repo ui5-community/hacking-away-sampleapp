@@ -10,15 +10,16 @@
     "strict": true,
     "strictNullChecks": false,
     "strictPropertyInitialization": false,
-    "rootDir": "./src",
+    "rootDirs": ["./src"],
     "outDir": "./dist",
     "baseUrl": "./",
-    "typeRoots": ["./node_modules/@types", "./node_modules/@openui5/ts-types-esm"],
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["@openui5/ts-types-esm"],
     "paths": {
       "hacking/away/sampleapp/*": ["./src/*"],
       "hacking/away/samplelib/*": ["./node_modules/@local/library/src/hacking/away/samplelib/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./node_modules/@local/library/src/hacking/away/samplelib/**/*"],
   "exclude": ["./test"]
 }

@@ -7,6 +7,7 @@ import Event from "sap/ui/base/Event";
 import Button from "sap/m/Button";
 import TodoItem from "../models/TodoItem";
 import MessageToast from "sap/m/MessageToast";
+import CustomChart from "hacking/away/samplelib/CustomChart";
 
 /**
  * @namespace hacking.away.sampleapp.controller
@@ -14,6 +15,8 @@ import MessageToast from "sap/m/MessageToast";
 export default class MainController extends BaseController {
 	onInit(): void {
 		super.onInit();
+		const cc = new CustomChart({ title: "test" });
+		cc.setTitle("test");
 	}
 
 	getTodoModel(): TodoModel {
