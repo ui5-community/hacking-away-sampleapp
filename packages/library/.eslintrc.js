@@ -8,9 +8,10 @@ module.exports = {
 	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/recommended-requiring-type-checking"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
-		project: ["tsconfig.json", "packages/library/tsconfig.json"],
+		project: ["tsconfig.json"],
 		tsconfigRootDir: __dirname,
 		sourceType: "module"
 	},
+	ignorePatterns: [".eslintrc.js"],
 	plugins: ["@typescript-eslint"]
 };
